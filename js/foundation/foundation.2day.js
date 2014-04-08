@@ -17,8 +17,8 @@
 //@prepros-prepend foundation.abide.js
 //@prepros-prepend foundation.js
 // Generate Foundation data-attributes out of Twoday-compatible HTML markup
-// Syntax: <elementtag id="someid" class="someclass" title="data-text=sometext | data-class=someclass | data-id=dataid">      will be transformed to
-//         <elementtag id="someid" class="someclass" data-text="sometext" data-class="someclass" data-id="dataid">
+// Syntax: <elementtag title="data-text=sometext | data-class=someclass | data-id=someid">   will be transformed to
+//         <elementtag data-text="sometext" data-class="someclass" data-id="someid">
 ;(function($) { "use strict";
 
     $.fn.foundation2day = function(){
@@ -30,37 +30,45 @@
                     'initFoundation5': {} // Initialization parameters for Foundation 5
                 },
                 dataAttribs : { // Lists all available data-Attribs; true=this attrib has a parameter literal; false=no param
-                    'data-options':true,
-                    'data-interchange':true,
-                    'data-magellan-expedition':true,
-                    'data-magellan-arrival':true,
-                    'data-magellan-destination':true,
-                    'data-orbit':false,
-                    'data-orbit-slide-number':true,
-                    'data-clearing':false,
-                    'data-slider':false,
                     'data-abide':false,
+                    'data-abide-validator':true,
+                    'data-accordion':false,
+                    'data-alert':false,
+                    'data-button':true,
+                    'data-caption':true,
+                    'data-class':true,
+                    'data-clearing':false,
                     'data-dropdown':true,
                     'data-dropdown-content':true,
-                    'data-reveal':false,
-                    'data-reveal-id':true,
-                    'data-reveal-ajax':true,
-                    'data-alert':false,
-                    'data-tooltip':false,
-                    'data-joyride':false,
-                    'data-id':true,
-                    'data-text':true,
-                    'data-class':true,
-                    'data-button':true,
-                    'data-accordion':false,
-                    'data-tab':false,
                     'data-equalizer':false,
-                    'data-equalizer-watch':false
+                    'data-equalizer-watch':false,
+                    'data-equalto':true,
+                    'data-id':true,
+                    'data-interchange':true,
+                    'data-joyride':false,
+                    'data-magellan-arrival':true,
+                    'data-magellan-destination':true,
+                    'data-magellan-expedition':true,
+                    'data-offcanvas':false,
+                    'data-oneof':false,
+                    'data-options':true,
+                    'data-orbit':false,
+                    'data-orbit-link':true,
+                    'data-orbit-slide':true,
+                    'data-orbit-slide-number':true,
+                    'data-reveal':false,
+                    'data-reveal-ajax':true,
+                    'data-reveal-id':true,
+                    'data-slider':false,
+                    'data-tab':false,
+                    'data-text':true,
+                    'data-tooltip':false,
+                    'data-topbar':false
                 },
                 init: function(useroptions){
 //----------------- Take over user options
                     var options = $.extend( {}, foundation2dayObj.defaults, useroptions || {} ),
-                        dataAttribs = [], parts = [], attrib = "", self;
+                        dataAttribs = [], parts = [], attrib = "", err = "Syntaxfehler: ", self;
 //----------------- For each of the tags that carry a title with a "data-" content...
                     $foundationTags.each( function(){
 //--------------------- Establish default values for each video (may be overwritten by class settings)
@@ -77,11 +85,11 @@
 //------------------------- Validate data-Attrib and existence of a required parameter
                             if (foundation2dayObj.validateDataAttribs){
                                 if (typeof(foundation2dayObj.dataAttribs[attrib])==="undefined"){
-                                    alert('Syntaxfehler: "'+attrib+'" ist kein bekanntes data-Attribut in Foundation5!');
+                                    alert(err+attrib+'" ist kein bekanntes data-Attribut in Foundation5!');
                                     return;
                                 } else {
                                     if (foundation2dayObj.dataAttribs[attrib] && parts.length<2){
-                                        alert('Syntaxfehler: "'+attrib+'" benötigt einen Parameter der Form '+attrib+'=Optionstext !');
+                                        alert(err+attrib+'" benötigt einen Parameter der Form '+attrib+'=param !');
                                         return;
                                     }
                                 }
