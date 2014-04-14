@@ -17,8 +17,8 @@
 //@prepros-prepend foundation.abide.js
 //@prepros-prepend foundation.js
 // Generate Foundation data-attributes out of Twoday-compatible HTML markup
-// Syntax: <elementtag title="data-text=sometext | data-class=someclass | data-id=someid">   will be transformed to
-//         <elementtag data-text="sometext" data-class="someclass" data-id="someid">
+// Syntax: <elementtag title="data-someattr | data-text=sometext | data-class=someclass | data-id=someid">   will be transformed to
+//         <elementtag data-someattr data-text="sometext" data-class="someclass" data-id="someid">
 ;(function($) { "use strict";
 
     $.fn.foundation2day = function(){

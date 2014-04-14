@@ -207,7 +207,7 @@
         var $image = $(image);
         image.css('visibility', 'visible');
         // toggle the gallery
-        body.css('overflow', 'hidden');
+        body.css('overflow', 'hidden').addClass("clearingBox");
         root.addClass('clearing-blackout');
         container.addClass('clearing-container');
         visible_image.show();
@@ -245,7 +245,7 @@
           body = $(document.body), container, visible_image;
 
       if (el === e.target && root) {
-        body.css('overflow', '');
+        body.css('overflow', '').removeClass("clearingBox");
         container = $('div', root).first();
         visible_image = $('.visible-img', container);
         visible_image.trigger('close.fndtn.clearing');
