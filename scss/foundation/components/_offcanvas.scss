@@ -4,7 +4,6 @@
 
 @import "global";
 @import "type";
-@import "top-bar";
 
 // Off Canvas Tab Bar Variables
 $include-html-off-canvas-classes: $include-html-classes !default;
@@ -330,14 +329,14 @@ $menu-slide: "transform 500ms ease" !default;
 
     // MENU BUTTON
     // This is a little bonus. You don't need it for off canvas to work. Mixins to be written in the future.
-    .tab-bar .menu-icon {
+    .menu-icon {
       text-indent: $tabbar-menu-icon-text-indent;
       width: $tabbar-height;
       height: $tabbar-height;
       display: block;
       line-height: $tabbar-menu-icon-line-height;
       padding: $tabbar-menu-icon-padding;
-      color: $topbar-menu-link-color;
+      color: $tabbar-menu-icon-color;
       position: relative;
       @include translate3d(0,0,0);
 
