@@ -44,3 +44,4 @@ test/scss/output-test
 test/tmp
 test/version_tmp
 tmp
+js/foundation/min/*
