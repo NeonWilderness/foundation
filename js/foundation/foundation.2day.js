@@ -24,10 +24,10 @@
     $.fn.foundation2day = function(){
         var $foundationTags = this,
             foundation2dayObj = {
-                version: "0.1",
+                version: "0.2",
                 defaults: {
-                    'validateDataAttribs': true, // true=Validates correct usage of data-Attributes passed through the elements title-Attribute
-                    'initFoundation5': {} // Initialization parameters for Foundation 5
+                    validateDataAttribs: true, // true=Validates correct usage of data-Attributes passed through the elements title-Attribute
+                    initFoundation5: {}        // Initialization parameters for Foundation 5
                 },
                 dataAttribs : { // Lists all available data-Attribs; true=this attrib has a parameter literal; false=no param
                     'data-abide':false,
@@ -39,7 +39,7 @@
                     'data-class':true,
                     'data-clearing':false,
                     'data-dropdown':true,
-                    'data-dropdown-content':true,
+                    'data-dropdown-content':false,
                     'data-equalizer':false,
                     'data-equalizer-watch':false,
                     'data-equalto':true,
@@ -69,40 +69,40 @@
                     'data-topbar':false
                 },
                 init: function(useroptions){
-//                  Take over user options
+					//merge user options
                     var options = $.extend( {}, foundation2dayObj.defaults, useroptions || {} ),
                         dataAttribs = [], parts = [], attrib = "", err = "Syntaxfehler: ", self;
-//                  For each of the tags that carry a title with a "data-" content...
+					//for each tag carrying a title with a "data-"-attr ...
                     $foundationTags.each( function(){
-//                      For this current element
+						//for the current element
                         self = $(this);
-//                      Split multiple data-Attribs, if any
+						//split multiple data-Attribs, if any
                         dataAttribs = (self.attr("title") || "").split("|");
-//                      Now remove the title-Attrib
+						//Now remove the title-Attrib
                         self.removeAttr("title");
-//                      Process each data-Attrib
+						//Process each data-Attrib
                         $.each( dataAttribs, function(){
-//                          Isolate data-attrib and parameter literal, if any
+						//Isolate data-attrib and parameter literal, if any
                             parts = $.trim(this).split("=");
                             attrib = parts[0].toLowerCase();
-//                          Validate data-Attrib and existence of a potentially required parameter
-                            if (foundation2dayObj.validateDataAttribs){
-                                if (typeof(foundation2dayObj.dataAttribs[attrib])==="undefined"){
-                                    alert(err+attrib+'" ist kein bekanntes data-Attribut in Foundation5!');
-                                    return;
+							//Validate data-Attrib and existence of a potentially required parameter
+                            if (options.validateDataAttribs){
+                                if (typeof foundation2dayObj.dataAttribs[attrib] === "undefined"){
+                                    console.log(err+attrib+'" ist kein bekanntes data-Attribut in Foundation5!');
+                                    return true;
                                 } else {
                                     if (foundation2dayObj.dataAttribs[attrib] && parts.length<2){
-                                        alert(err+attrib+'" benötigt einen Parameter der Form '+attrib+'=param !');
-                                        return;
+                                        console.log(err+attrib+'" benötigt einen Parameter der Form '+attrib+'=param !');
+                                        return true;
                                     }
                                 }
                             }
-//                          Injects the extracted data-attrib into its HTML-tag
+							//Injects the extracted data-attrib into its HTML-tag
                             self.attr(attrib, parts.length>1 ? parts[1] : "");
                         });
                     });
                     $(document).foundation(options.initFoundation5);
-//                  Enable jQuery chaining
+					//Enable jQuery chaining
                     return $foundationTags;
                 }
             };
