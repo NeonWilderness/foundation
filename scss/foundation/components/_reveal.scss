@@ -17,7 +17,8 @@ $reveal-overlay-bg-old: #000 !default;
 
 // We use these to control the style of the modal itself.
 $reveal-modal-bg: #fff !default;
-$reveal-position-top: rem-calc(100) !default;
+//$reveal-position-top: rem-calc(100) !default;
+$reveal-position-top: rem-calc(50) !default; // DHE200514: reduced to 50px
 $reveal-default-width: 80% !default;
 $reveal-modal-padding: rem-calc(20) !default;
 $reveal-box-shadow: 0 0 10px rgba(#000,.4) !default;
