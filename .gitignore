@@ -45,3 +45,6 @@ test/tmp
 test/version_tmp
 tmp
 js/foundation/min/*
+min
+pizza/
+docs/*
