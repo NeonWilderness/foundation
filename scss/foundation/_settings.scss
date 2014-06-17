@@ -40,6 +40,10 @@
 
 // Global
 
+// We use these to define default font weights
+// $font-weight-normal: normal !default
+// $font-weight-bold: bold !default
+
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
@@ -767,10 +771,6 @@
 // $orbit-slide-number-font-color: #fff;
 // $orbit-slide-number-padding: rem-calc(5);
 
-// We use these to controls the css animation
-// $orbit-animation-speed: 500ms;
-// $orbit-animation-ease: ease-in-out;
-
 // Hide controls on small
 // $orbit-nav-hide-for-small: true;
 // $orbit-bullet-hide-for-small: true;
@@ -1176,6 +1176,7 @@
 // $tooltip-radius: $global-radius;
 // $tooltip-rounded: $global-rounded;
 // $tooltip-pip-size: 5px;
+// $tooltip-max-width: 300px;
 
 //
 // TOP BAR
