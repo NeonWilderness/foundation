@@ -68,6 +68,7 @@
                     'data-tooltip':false,
                     'data-topbar':false,
                     //special attributes
+                    'data-bind':true, // enables integration of knockout js MVVM
                     'data-opacity':true, // holds color opacity of minicolors spinedit field
                     'data-!placeholder':true, // holds the placeholder-text for input form fields
                     'data-!title':true // holds the tooltip-text
