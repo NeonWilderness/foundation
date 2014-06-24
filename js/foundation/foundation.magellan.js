@@ -4,7 +4,7 @@
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.2.3',
+    version : '5.3.0',
 
     settings : {
       active_class: 'active',
@@ -41,7 +41,7 @@
           }
 
           // Account for expedition height if fixed position
-          var scroll_top = target.offset().top;
+          var scroll_top = target.offset().top - settings.destination_threshold;
           scroll_top = scroll_top - expedition.outerHeight();
 
           $('html, body').stop().animate({

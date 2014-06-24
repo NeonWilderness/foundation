@@ -12,8 +12,6 @@
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
 
-// $experimental: true;
-
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
 
@@ -32,7 +30,7 @@
 
 // Grid 
 
-// $include-html-block-grid-classes: $include-html-classes; 
+// $include-html-grid-classes: $include-html-classes; 
 // $include-xl-html-grid-classes: false;
 
 // $row-width: rem-calc(1000);
@@ -294,7 +292,7 @@
 
 // Block Grid
 
-// $include-html-grid-classes: $include-html-classes;
+// $include-html-block-grid-classes: $include-html-classes;
 // $include-xl-html-block-grid-classes: false;
 
 // We use this to control the maximum number of block grid elements per row
@@ -682,6 +680,7 @@
 
 // $tabbar-bg: #333;
 // $tabbar-height: rem-calc(45);
+// $tabbar-icon-width: $tabbar-height;
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: #fff;
 // $tabbar-middle-padding: 0 rem-calc(10);
@@ -1253,6 +1252,20 @@
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
+
+// ICON BAR
+
+// We use these to style the icon-bar and items
+// $icon-bar-bg: #333;
+// $icon-bar-font-color: #fff;
+// $icon-bar-font-size: 1rem;
+// $icon-bar-hover-color: $primary-color;
+// $icon-bar-icon-color: #fff;
+// $icon-bar-icon-size: 1.875rem;
+// $icon-bar-image-width: 1.875rem;
+// $icon-bar-image-height: 1.875rem;
+// $icon-bar-active-color: $primary-color;
+// $icon-bar-item-padding: 1.25rem;
 
 //
 // VISIBILITY CLASSES
