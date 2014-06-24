@@ -24,7 +24,7 @@ $panel-padding: rem-calc(20) !default;
 
 // We use these to set default font colors
 $panel-font-color: #333 !default;
-$panel-font-color-alt: #fff !default;
+$panel-font-color-alt: #333 !default; // DHE18062014 - cancel #fff
 
 $panel-header-adjust: true !default;
 $callout-panel-link-color: $primary-color !default;
