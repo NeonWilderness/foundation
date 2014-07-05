@@ -1,37 +1,22 @@
+
+//Mixins
 @import "global";
-@import "foundation";
-@import "code";
-@import "marketing-off-canvas";
-@import "footer";
-@import "foundation-forum";
-@import "footer-banner";
+
+//Foundation Libraries
+@import 
+  "scss/foundation/settings",
+  "foundation";
+
+//Marketing Site Common Library
+@import 
+  "code",
+  "marketing-off-canvas",
+  "footer",
+  "foundation-forum",
+  "footer-banner";
 
 
-@mixin box-shadow(
-  $shadow-1 : default,
-  $shadow-2 : false,
-  $shadow-3 : false,
-  $shadow-4 : false,
-  $shadow-5 : false,
-  $shadow-6 : false,
-  $shadow-7 : false,
-  $shadow-8 : false,
-  $shadow-9 : false,
-  $shadow-10: false
-) { }
 
-@mixin border-direction($direction:top,
-                        $style:solid,
-                        $width:2px,
-                        $color:darken($panel-bg-color, 1%)) {
-  border-#{$direction}: #{$style} #{$width} #{$color};
-}
-
-@mixin border($style:solid,
-              $width:2px,
-              $color:darken($panel-bg-color, 1%)) {
-  border: #{$style} #{$width} #{$color};
-}
 
 .row {
   max-width: rem-calc(1440);
@@ -206,6 +191,8 @@ footer { margin-top: 45px; }
 .magellan-container {
   padding: 10px 0;
   background: #fff;
+
+
 }
 .example-orbit {}
 .example-orbit-content li div {
@@ -586,6 +573,217 @@ $custom-active-bg:darken($custom-link-color, 5%);
 
 
 // Fix for Google Maps
-div#interchangeMarkup img{
+div#interchangeMarkup img {
   max-width: none;
 }
+
+/*------------------------------------
+you will need
+------------------------------------*/
+.you-will-need {
+  a {
+    margin-bottom: 0px;
+  }
+  img {
+    width: 160px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  h4 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    text-transform: capitalize;
+  } 
+}
+
+
+
+/*------------------------------------
+images
+------------------------------------*/
+.others {
+  max-height: 180px;
+  display: block;
+  margin: 10px auto;
+}
+
+
+.flow-chart {
+  margin: 10px 10px 15px 0;
+  @media #{$small-only} { 
+    margin:20px;
+  }
+}
+
+.command-line {
+  @media #{$small-only} {
+    margin:20px;
+  }
+}
+
+/*------------------------------------
+padding
+------------------------------------*/
+.recommended {
+  padding-top:10px;
+}
+
+.path-container code {
+  color:$primary-color;
+}
+
+.sub-nav {
+  background-color: $panel-bg;
+  padding: 10px 10px 10px 0;
+}
+
+.above-magellan {
+  margin-bottom: 30px
+}
+
+.otherapps {
+  margin-bottom: 20px !important; 
+}
+
+/*------------------------------------
+ timeline styles
+------------------------------------*/
+.two-column {
+  margin-top: 20px;
+}
+
+.path-container {
+  .path-item {
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+  h4 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    text-transform: capitalize;
+    padding-bottom: 10px;
+  }
+}
+
+
+/*------------------------------------
+circles
+------------------------------------*/
+.circlenumber {
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #0b4f69;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  margin-top: 6px;
+  margin-right: 18px; 
+  margin-bottom: 5px;
+  margin-left: 0.83333rem;
+  z-index: 2;
+  h3 {
+    color: #0b4f69;
+    position: relative;
+    text-align: center;
+    top: 2.5%;
+    font-weight: bold;
+    font-size: 16px;
+  }
+}
+
+
+@media only screen and (min-width: 0) and (max-width: 64.063em){ 
+  .path-item {
+    padding-left: 0.83333rem; 
+    .circlenumber {
+      left: -12px;
+    }
+  }
+}
+
+@media only screen and (min-width: 64.063em) { 
+  .path-item {
+    padding-left: 65px;
+    position: relative;
+    .circlenumber {
+    position: absolute;
+    left: 0;
+    }
+  }
+}
+
+/*------------------------------------
+ mobile timeline styles
+------------------------------------*/
+@media only screen and (max-width: 1800px) {
+  .path-container {
+    .circle {
+    top: 0;
+    right: 0;
+    left: 0;
+    float: none;
+    padding-top: 0px;
+    margin-right: auto;
+    }
+  .panel {
+    border: none;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    font-weight: normal;
+    padding-left:20px;
+    } 
+  }
+}
+
+/*------------------------------------
+misc
+------------------------------------*/
+p.note  {
+  font-size: 16px;
+}
+
+@media #{$small-only} {
+   .other-uses {
+    .button {
+      display: block !important;
+    }
+  }
+}
+
+.path-item:last-child, .path-item p:last-child, .nocli ul:last-child, .other-uses .button:last-child, .path-container p:last-child{
+  margin-bottom: 0;
+}
+
+.dashed {
+  border-style: dashed;
+}
+
+/*------------------------------------
+what you get
+------------------------------------*/
+.header-container {
+  padding: 20px 30px 20px 30px;
+  background: #0b4f69;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  h3 {
+    color:#fff;
+  }
+}
+
+.info-list {
+  background: #fafafa;
+  list-style: none;
+  margin: 0 0 40px 0;
+  li {
+    padding: 20px 30px;
+    pre {
+      margin-bottom: 0;
+    }
+  }
+  li:nth-child(even) {
+    background: #f5f5f5;
+  }
+}
+
+
+

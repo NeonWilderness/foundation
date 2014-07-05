@@ -128,7 +128,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
   }
 
   // Disabled background input background color
-  &[disabled], fieldset[disabled] & { background-color: $input-disabled-bg; }
+  &[disabled], &[readonly], fieldset[disabled] & { background-color: $input-disabled-bg; }
 }
 
 // @MIXIN
@@ -304,6 +304,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
 
 @mixin form-select  {
   -webkit-appearance: none !important;
+  -webkit-border-radius: 0px;
   background-color: $select-bg-color;
   
   // The custom arrow have some fake horizontal padding so we can align it
@@ -388,6 +389,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
     input[type="submit"],
     textarea {
       -webkit-appearance: none;
+      -webkit-border-radius: 0px;
       @include form-element;
       @if not $input-include-glowing-effect {
           @include single-transition(all, 0.15s, linear);
@@ -395,6 +397,11 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
       &.radius {
         @include radius($input-border-radius);
       }
+    }
+
+    input[type="submit"] {
+      -webkit-appearance: none;
+      -webkit-border-radius: 0px;
     }
 
     /* Respect enforced amount of rows for textarea */
