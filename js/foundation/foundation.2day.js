@@ -1,21 +1,21 @@
 /*! foundation2day - Twoday adapted version of Foundation 5 from Zurb, concatinated and minified with PrePros */
-//@prepros-prepend foundation.topbar.js
-//@prepros-prepend foundation.tooltip.js
-//@prepros-prepend foundation.tab.js
-//@prepros-prepend foundation.slider.js
-//@prepros-prepend foundation.reveal.js
-//@prepros-prepend foundation.orbit.js
-//@prepros-prepend foundation.offcanvas.js
-//@prepros-prepend foundation.magellan.js
-//@prepros-prepend foundation.joyride.js
-//@prepros-prepend foundation.interchange.js
-//@prepros-prepend foundation.equalizer.js
-//@prepros-prepend foundation.dropdown.js
-//@prepros-prepend foundation.clearing.js
-//@prepros-prepend foundation.alert.js
-//@prepros-prepend foundation.accordion.js
-//@prepros-prepend foundation.abide.js
 //@prepros-prepend foundation.js
+//@prepros-prepend foundation.abide.js
+//@prepros-prepend foundation.accordion.js
+//@prepros-prepend foundation.alert.js
+//@prepros-prepend foundation.clearing.js
+//@prepros-prepend foundation.dropdown.js
+//@prepros-prepend foundation.equalizer.js
+//@prepros-prepend foundation.interchange.js
+//@prepros-prepend foundation.joyride.js
+//@prepros-prepend foundation.magellan.js
+//@prepros-prepend foundation.offcanvas.js
+//@prepros-prepend foundation.orbit.js
+//@prepros-prepend foundation.reveal.js
+//@prepros-prepend foundation.slider.js
+//@prepros-prepend foundation.tab.js
+//@prepros-prepend foundation.tooltip.js
+//@prepros-prepend foundation.topbar.js
 // Generate Foundation data-attributes out of Twoday-compatible HTML markup
 // Syntax: <elementtag title="data-someattr | data-text=sometext | data-class=someclass | data-id=someid | data-!placeholder=text">  will be transformed to
 //         <elementtag data-someattr data-text="sometext" data-class="someclass" data-id="someid" placeholder="text">
@@ -24,7 +24,7 @@
     $.fn.foundation2day = function(){
         var $foundationTags = this,
             foundation2dayObj = {
-                version: "0.2",
+                version: "0.3",
                 defaults: {
                     validateDataAttribs: true, // true=Validates correct usage of data-Attributes passed through the elements title-Attribute
                     initFoundation5: {}        // Initialization parameters for Foundation 5
@@ -97,7 +97,7 @@
                                     return true;
                                 } else {
                                     if (foundation2dayObj.dataAttribs[attrib] && parts.length<2){
-                                        console.error(err+attrib+' benötigt einen Parameter der Form '+attrib+'=param !');
+                                        console.error(err+attrib+' erwartet einen Parameter der Form '+attrib+'=param !');
                                         return true;
                                     }
                                 }
