@@ -214,10 +214,8 @@ footer { margin-top: 45px; }
 
 // Examples
 .magellan-container {
-  padding: 10px 0;
+  padding: 0 !important;
   background: #fff;
-
-
 }
 .example-orbit {}
 .example-orbit-content li div {
@@ -924,7 +922,7 @@ what you get
     border: 3px solid #fff;
     background: #eee;
   }
-  .columns:nth-child(2), {
+  .columns:nth-child(2) {
     background: #e1e1e1;
   }
   p {
