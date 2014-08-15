@@ -54,7 +54,7 @@ $tooltip-max-width: 300px !default;
     .tooltip {
       display: none;
       position: absolute;
-      z-index: 999;
+      z-index: 1006; /* DHE060814: tooltip z-index (formerly 999) needs to go above reveal's z-indexes (1004 and 1005) */
       font-weight: $tooltip-font-weight;
       font-size: $tooltip-font-size;
       line-height: $tooltip-line-height;
