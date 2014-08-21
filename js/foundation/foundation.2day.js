@@ -57,6 +57,7 @@
                     'data-orbit-link':true,
                     'data-orbit-slide':true,
                     'data-orbit-slide-number':true,
+                    'data-prev-text':true,
                     'data-reveal':false,
                     'data-reveal-ajax':true,
                     'data-reveal-id':true,
