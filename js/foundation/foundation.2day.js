@@ -16,7 +16,7 @@
 //@prepros-prepend foundation.tab.js
 //@prepros-prepend foundation.tooltip.js
 //@prepros-prepend foundation.topbar.js
-// Generate Foundation data-attributes out of Twoday-compatible HTML markup
+// Generate Foundation data-attributes out of Twoday-compatible HTML markup (extracted from title-string)
 // Syntax: <elementtag title="data-someattr | data-text=sometext | data-class=someclass | data-id=someid | data-!placeholder=text">  will be transformed to
 //         <elementtag data-someattr data-text="sometext" data-class="someclass" data-id="someid" placeholder="text">
 ;(function($) { "use strict";
@@ -71,6 +71,7 @@
                     //special attributes
                     'data-bind':true, // enables integration of knockout js MVVM
                     'data-opacity':true, // holds color opacity of minicolors spinedit field
+                    'data-!aria-haspopup':true, // tooltip accessibility parameter
                     'data-!placeholder':true, // holds the placeholder-text for input form fields
                     'data-!title':true // holds the tooltip-text
                 },
