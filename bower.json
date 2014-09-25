@@ -1,6 +1,6 @@
 {
   "name": "foundation",
-  "version": "5.4.3",
+  "version": "{{VERSION}}",
   "main": [
     "css/foundation.css",
     "css/foundation.css.map",
