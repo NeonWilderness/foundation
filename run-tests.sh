@@ -17,8 +17,10 @@ if [ -d "${FOUNDATION_COMPASS_TEMPLATE}" ]; then
 fi
 git clone git://github.com/zurb/${FOUNDATION_COMPASS_TEMPLATE}.git
 cd $FOUNDATION_COMPASS_TEMPLATE
+rm bower.json
 bower install ../../dist/assets --save
 cp -f bower_components/foundation/scss/foundation/_settings.scss scss/_settings.scss
+bundle install
 bundle exec compass compile
 rc=$?
 if [ "$rc" -ne 0 ] ; then
