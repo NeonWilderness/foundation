@@ -73,7 +73,8 @@
                     'data-opacity':true, // holds color opacity of minicolors spinedit field
                     'data-!aria-haspopup':true, // tooltip accessibility parameter
                     'data-!placeholder':true, // holds the placeholder-text for input form fields
-                    'data-!title':true // holds the tooltip-text
+                    'data-!title':true, // holds the tooltip-text
+                    'data-!value':true // holds the value in select options
                 },
                 init: function(useroptions){
                     //merge user options
