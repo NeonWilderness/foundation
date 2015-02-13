@@ -188,9 +188,9 @@
         if (typeof ajax_settings === 'undefined' || !ajax_settings.url) {
           if (open_modal.length > 0) {
             if (settings.multiple_opened) {
-              this.to_back(open_modal);
+              self.to_back(open_modal);
             } else {
-              this.hide(open_modal, settings.css.close);
+              self.hide(open_modal, settings.css.close);
             }
           }
 
@@ -213,9 +213,9 @@
 
               if (open_modal.length > 0) {
                 if (settings.multiple_opened) {
-                  this.to_back(open_modal);
+                  self.to_back(open_modal);
                 } else {
-                  this.hide(open_modal, settings.css.close);
+                  self.hide(open_modal, settings.css.close);
                 }
               }
               self.show(modal, settings.css.open);
@@ -231,7 +231,8 @@
     close : function (modal) {
       var modal = modal && modal.length ? modal : this.S(this.scope),
           open_modals = this.S('[' + this.attr_name() + '].open'),
-          settings = modal.data(this.attr_name(true) + '-init') || this.settings;
+          settings = modal.data(this.attr_name(true) + '-init') || this.settings,
+          self = this;
 
       if (open_modals.length > 0) {
         this.locked = true;
@@ -239,15 +240,15 @@
         modal.trigger('close').trigger('close.fndtn.reveal');
         
         if ((settings.multiple_opened && open_modals.length === 1) || !settings.multiple_opened || modal.length > 1) {
-          this.toggle_bg(modal, false);
-          this.to_front(modal);
+          self.toggle_bg(modal, false);
+          self.to_front(modal);
         }
         
         if (settings.multiple_opened) {
-          this.hide(modal, settings.css.close, settings);
-          this.to_front($($.makeArray(open_modals).reverse()[1]));
+          self.hide(modal, settings.css.close, settings);
+          self.to_front($($.makeArray(open_modals).reverse()[1]));
         } else {
-          this.hide(open_modals, settings.css.close, settings);
+          self.hide(open_modals, settings.css.close, settings);
         }
       }
     },
@@ -282,7 +283,8 @@
       // is modal
       if (css) {
         var settings = el.data(this.attr_name(true) + '-init') || this.settings,
-            root_element = settings.root_element;
+            root_element = settings.root_element,
+            context = this;
 
         if (el.parent(root_element).length === 0) {
           var placeholder = el.wrap('<div style="display: none;" />').parent();
@@ -310,11 +312,11 @@
             return el
               .css(css)
               .animate(end_css, settings.animation_speed, 'linear', function () {
-                this.locked = false;
+                context.locked = false;
                 el.trigger('opened').trigger('opened.fndtn.reveal');
-              }.bind(this))
+              })
               .addClass('open');
-          }.bind(this), settings.animation_speed / 2);
+          }, settings.animation_speed / 2);
         }
 
         if (animData.fade) {
@@ -325,11 +327,11 @@
             return el
               .css(css)
               .animate(end_css, settings.animation_speed, 'linear', function () {
-                this.locked = false;
+                context.locked = false;
                 el.trigger('opened').trigger('opened.fndtn.reveal');
-              }.bind(this))
+              })
               .addClass('open');
-          }.bind(this), settings.animation_speed / 2);
+          }, settings.animation_speed / 2);
         }
 
         return el.css(css).show().css({opacity : 1}).addClass('open').trigger('opened').trigger('opened.fndtn.reveal');
@@ -358,7 +360,8 @@
     hide : function (el, css) {
       // is modal
       if (css) {
-        var settings = el.data(this.attr_name(true) + '-init');
+        var settings = el.data(this.attr_name(true) + '-init'),
+            context = this;
         settings = settings || this.settings;
 
         var animData = getAnimationData(settings.animation);
@@ -374,11 +377,11 @@
           return setTimeout(function () {
             return el
               .animate(end_css, settings.animation_speed, 'linear', function () {
-                this.locked = false;
+                context.locked = false;
                 el.css(css).trigger('closed').trigger('closed.fndtn.reveal');
-              }.bind(this))
+              })
               .removeClass('open');
-          }.bind(this), settings.animation_speed / 2);
+          }, settings.animation_speed / 2);
         }
 
         if (animData.fade) {
@@ -387,11 +390,11 @@
           return setTimeout(function () {
             return el
               .animate(end_css, settings.animation_speed, 'linear', function () {
-                this.locked = false;
+                context.locked = false;
                 el.css(css).trigger('closed').trigger('closed.fndtn.reveal');
-              }.bind(this))
+              })
               .removeClass('open');
-          }.bind(this), settings.animation_speed / 2);
+          }, settings.animation_speed / 2);
         }
 
         return el.hide().css(css).removeClass('open').trigger('closed').trigger('closed.fndtn.reveal');
