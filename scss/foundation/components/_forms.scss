@@ -321,6 +321,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
 
 @mixin form-select  {
   -webkit-appearance: none !important;
+  -moz-appearance: none !important;
   border-radius: 0;
   background-color: $select-bg-color;
 
@@ -411,6 +412,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
     /* We use this to get basic styling on all basic form elements */
     #{text-inputs(all, 'input')} {
       -webkit-appearance: none;
+      -moz-appearance: none;
       border-radius: 0;
       @include form-element;
       @if $input-include-glowing-effect == false {
@@ -460,6 +462,7 @@ $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%) !default;
 
     input[type="submit"] {
       -webkit-appearance: none;
+      -moz-appearance: none;
       border-radius: 0;
     }
 
