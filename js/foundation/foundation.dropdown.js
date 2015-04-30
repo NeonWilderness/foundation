@@ -34,7 +34,7 @@
           var settings = S(this).data(self.attr_name(true) + '-init') || self.settings;
           if (!settings.is_hover || Modernizr.touch) {
             e.preventDefault();
-            if (S(this).parent('[data-reveal-id]')) {
+            if (S(this).parent('[data-reveal-id]').length) {
               e.stopPropagation();
             }
             self.toggle($(this));
@@ -131,8 +131,8 @@
 
     close : function (dropdown) {
       var self = this;
-      dropdown.each(function () {
-        var original_target = $('[' + self.attr_name() + '=' + dropdown[0].id + ']') || $('aria-controls=' + dropdown[0].id + ']');
+      dropdown.each(function (idx) {
+        var original_target = $('[' + self.attr_name() + '=' + dropdown[idx].id + ']') || $('aria-controls=' + dropdown[idx].id + ']');
         original_target.attr('aria-expanded', 'false');
         if (self.S(this).hasClass(self.settings.active_class)) {
           self.S(this)
