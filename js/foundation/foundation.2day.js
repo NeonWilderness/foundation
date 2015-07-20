@@ -24,7 +24,7 @@
     $.fn.foundation2day = function(){
         var $foundationTags = this,
             foundation2dayObj = {
-                version: "0.3",
+                version: "0.4",
                 defaults: {
                     validateDataAttribs: true, // true=Validates correct usage of data-Attributes passed through the elements title-Attribute
                     initFoundation5: {}        // Initialization parameters for Foundation 5
@@ -38,6 +38,7 @@
                     'data-caption':true,
                     'data-class':true,
                     'data-clearing':false,
+                    'data-clearing-interchange':true,
                     'data-dropdown':true,
                     'data-dropdown-content':false,
                     'data-equalizer':false,
@@ -68,11 +69,17 @@
                     'data-text':true,
                     'data-tooltip':false,
                     'data-topbar':false,
+                    'data-width':true,
                     //special attributes
                     'data-bind':true, // enables integration of knockout js MVVM
                     'data-opacity':true, // holds color opacity of minicolors spinedit field
-                    'data-!aria-haspopup':true, // tooltip accessibility parameter
+                    'data-!aria-controls':true, // accessibility parameter
+                    'data-!aria-expanded':true, // accessibility parameter
+                    'data-!aria-haspopup':true, // accessibility parameter
+                    'data-!aria-hidden':true, // accessibility parameter
+                    'data-!aria-labelledby':true, // accessibility parameter
                     'data-!placeholder':true, // holds the placeholder-text for input form fields
+                    'data-!role':true, // holds the aria role
                     'data-!title':true, // holds the tooltip-text
                     'data-!value':true // holds the value in select options
                 },
