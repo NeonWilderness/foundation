@@ -29,7 +29,7 @@
                     validateDataAttribs: true, // true=Validates correct usage of data-Attributes passed through the elements title-Attribute
                     initFoundation5: {}        // Initialization parameters for Foundation 5
                 },
-                dataAttribs : { // Lists all available data-Attribs; true=this attrib has a parameter literal; false=no param
+                dataAttribs : { // Lists all available data-Attribs; true=this attrib has a parameter literal; false=no param / may or may not be parametrized
                     'data-abide':false,
                     'data-abide-validator':true,
                     'data-accordion':false,
